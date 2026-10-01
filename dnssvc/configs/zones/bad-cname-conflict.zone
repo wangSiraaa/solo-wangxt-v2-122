@@ -1,0 +1,8 @@
+$ORIGIN home.test.
+$TTL 3600
+@   IN SOA ns1.home.test. admin.home.test. 2026093001 1h 15m 2w 1h
+@   IN NS  ns1.home.test.
+ns1 IN A   127.0.0.53
+; CNAME 与 A 同名：必须拒绝
+www IN CNAME other.home.test.
+www IN A   127.0.0.10

@@ -1,0 +1,29 @@
+
+; <<>> DiG 9.18.49-1~deb12u2-Debian <<>> @127.0.0.1 -p 5553 -k configs/tsig.key home.test AXFR +tcp
+; (1 server found)
+;; global options: +cmd
+home.test.		3600	IN	SOA	ns1.home.test. admin.home.test. 2026093001 3600 900 1209600 3600
+_sip._tcp.home.test.	3600	IN	SRV	10 60 5060 sip.home.test.
+alias.home.test.	3600	IN	CNAME	www.home.test.
+home.test.		3600	IN	NS	ns1.home.test.
+home.test.		3600	IN	MX	10 mail.home.test.
+home.test.		3600	IN	MX	20 mail2.home.test.
+home.test.		3600	IN	CAA	0 issue "ca.example"
+mail.home.test.		3600	IN	A	127.0.0.25
+mail2.home.test.	3600	IN	A	127.0.0.26
+new.home.test.		3600	IN	A	127.0.0.77
+ns1.home.test.		3600	IN	A	127.0.0.53
+old.home.test.		3600	IN	DNAME	new.home.test.
+sip.home.test.		3600	IN	A	127.0.0.40
+txt.home.test.		3600	IN	TXT	"second text record"
+txt.home.test.		3600	IN	TXT	"v=spf1 -all"
+www.home.test.		3600	IN	A	127.0.0.10
+www.home.test.		3600	IN	A	127.0.0.11
+www.home.test.		3600	IN	AAAA	::1
+home.test.		3600	IN	SOA	ns1.home.test. admin.home.test. 2026093001 3600 900 1209600 3600
+transfer.home.test.	0	ANY	TSIG	hmac-sha256. 1790811964 300 32 a6g1k3hZMQ6WI7elNd3j6hQ3vAM0QlT8Hz3H4AaL1Og= 38248 NOERROR 0 
+;; Query time: 0 msec
+;; SERVER: 127.0.0.1#5553(127.0.0.1) (TCP)
+;; WHEN: Wed Sep 30 23:46:04 UTC 2026
+;; XFR size: 19 records (messages 1, bytes 879)
+

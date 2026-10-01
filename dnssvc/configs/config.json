@@ -1,0 +1,16 @@
+{
+  "listen_udp": "127.0.0.1:5553",
+  "listen_tcp": "127.0.0.1:5553",
+  "zone": "home.test.",
+  "db_conn": "postgres://zoneadmin@/zones?host=/tmp/pgrun&port=55432&sslmode=disable",
+  "min_ttl": 60,
+  "max_ttl": 86400,
+  "neg_ttl": 300,
+  "transfer_acl": ["127.0.0.0/8", "::1/128"],
+  "tsig": {
+    "transfer.home.test.": {
+      "algorithm": "hmac-sha256",
+      "secret": "pMPWtvzpssGBmPQoOlp6x3ciRBs4fdvro7o+NfsR4Fc="
+    }
+  }
+}

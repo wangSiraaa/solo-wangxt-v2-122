@@ -1,0 +1,25 @@
+$ORIGIN home.test.
+$TTL 3600
+@       IN SOA ns1.home.test. admin.home.test. (
+                2026093001 ; serial
+                1h         ; refresh
+                15m        ; retry
+                2w         ; expire
+                1h )       ; minimum
+@       IN NS  ns1.home.test.
+ns1     IN A   127.0.0.53
+@       IN MX  10 mail.home.test.
+@       IN MX  20 mail2.home.test.
+www     IN A   127.0.0.10
+www     IN A   127.0.0.11
+www     IN AAAA ::1
+mail    IN A   127.0.0.25
+mail2   IN A   127.0.0.26
+alias   IN CNAME www.home.test.
+txt     IN TXT "v=spf1 -all"
+txt     IN TXT "second text record"
+_sip._tcp IN SRV 10 60 5060 sip.home.test.
+sip     IN A   127.0.0.40
+@       IN CAA 0 issue "ca.example"
+new     IN A   127.0.0.77
+old     IN DNAME new.home.test.
